@@ -7,13 +7,12 @@ public class Parejas {
 
 
     public Parejas() {
-        this.hombres = hombres;
-        this.mujeres = mujeres;
+        this.hombres = new ArrayList<>();
+        this.mujeres = new ArrayList<>();
     }
 
     public synchronized void agregarHombres(String nombre){
      hombres.add(new Bailarin(nombre));
-
 
     }
 

@@ -3,16 +3,26 @@ import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import java.util.ArrayList;
+
 public class SalonPanel extends JPanel implements PropertyChangeListener {
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        repaint();
+    private ArrayList<Bailarin> hombres;
+    private ArrayList<Bailarin> mujeres;
+
+    public SalonPanel() {
+        hombres = new ArrayList<>();
+        mujeres = new ArrayList<>();
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if (evt.getPropertyName().equals("CAMBIO_HOMBRES") || evt.getPropertyName().equals("CAMBIO_MUJERES")) {
+            repaint();
+        }
+    }
 
-    /*private synchronized void dibujarPista() {
-        Graphics gPista = pistaPanel.getGraphics();
-        gPista.clearRect(0, 0, pistaPanel.getWidth(), pistaPanel.getHeight());
+    public synchronized void dibujarPista(Graphics gPista) {
+        gPista.clearRect(0, 0, getWidth(), getHeight());
 
         int x = 10;
         int y = 10;
@@ -31,5 +41,13 @@ public class SalonPanel extends JPanel implements PropertyChangeListener {
             gPista.fillOval(x, y, 10, 10);
             x += 20;
         }
-    }*/
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        dibujarPista(g);
+    }
+
 }
+

@@ -25,7 +25,7 @@ public class SalonFrame extends JFrame {
         panel = new SalonPanel();
         this.getContentPane().add(panel, BorderLayout.CENTER);
 
-        consultaDatos();
+        consultaDatos(); // metodo para mostrar los espacios para rellenar con los datos hombres/mujeres
         this.pack();
         this.setVisible(true);
     }
@@ -66,7 +66,10 @@ public class SalonFrame extends JFrame {
         consultasPanel.add(mujerTextField);
         consultasPanel.add(mujerButton);
 
-        this.getContentPane().add(consultasPanel, BorderLayout.NORTH);
+        this.getContentPane().add(consultasPanel, BorderLayout.NORTH);// Agrega los Jtextfields para ingresar datos
+
+
+
 
     }
 
@@ -75,7 +78,11 @@ public class SalonFrame extends JFrame {
             public void run() {
                 SalonFrame salonFrame = new SalonFrame("Salon de Baile");
                 salonFrame.addListenener(salonFrame.panel);
-                salonFrame.notificar();
+                salonFrame.notificar(); // realiza los cambios en el observer (SalonPanel)
+
+                SalonPanel salonPanel = new SalonPanel();
+
+
             }
         });
     }
@@ -88,5 +95,10 @@ public class SalonFrame extends JFrame {
         observed.firePropertyChange("CAMBIO HOMBRE", true, false);
         observed.firePropertyChange("CAMBIO MUJER", true, false);
     }
+
+
+
+
+
 }
 
