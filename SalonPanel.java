@@ -1,7 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
-public class SalonPanel extends JPanel {
+public class SalonPanel extends JPanel implements PropertyChangeListener {
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        repaint();
+    }
 
 
     /*private synchronized void dibujarPista() {

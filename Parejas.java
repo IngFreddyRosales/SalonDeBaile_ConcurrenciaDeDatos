@@ -16,4 +16,10 @@ public class Parejas {
 
 
     }
+
+    public synchronized void agregarMujeres(String nombre){
+        mujeres.add(new Bailarin(nombre));
+
+
+    }
 }
