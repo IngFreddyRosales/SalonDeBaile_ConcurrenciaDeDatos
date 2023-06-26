@@ -20,4 +20,8 @@ public class Bailarin {
         Random random = new Random();
         return random.nextInt(10) + 1; // Genera un número aleatorio entre 1 y 10
     }
+    @Override
+    public String toString() {
+        return  nombre;
+    }
 }

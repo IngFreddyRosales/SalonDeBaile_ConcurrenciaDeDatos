@@ -13,11 +13,13 @@ public class Parejas {
 
     public synchronized void agregarHombres(String nombre){
      hombres.add(new Bailarin(nombre));
+        System.out.println(hombres);
 
     }
 
     public synchronized void agregarMujeres(String nombre){
         mujeres.add(new Bailarin(nombre));
+        System.out.println(mujeres);
 
 
     }
