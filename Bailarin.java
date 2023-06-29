@@ -1,27 +1,33 @@
-import java.util.Random;
-
 public class Bailarin {
     private String nombre;
-    private int tiempo;
+    private int tiempoBaile;
+    private boolean bailando;
 
-    public Bailarin(String nombre){
+    // Constructor
+    public Bailarin(String nombre) {
         this.nombre = nombre;
-        this. tiempo = generarTiempo();
+        this.tiempoBaile = 10; // Tiempo máximo de baile inicial
+        this.bailando = false;
     }
+
+    // Getters y setters
     public String getNombre() {
         return nombre;
     }
 
-    public int getTiempo() {
-        return tiempo;
+    public int getTiempoBaile() {
+        return tiempoBaile;
     }
 
-    private int generarTiempo() {
-        Random random = new Random();
-        return random.nextInt(10) + 1; // Genera un número aleatorio entre 1 y 10
+    public void setTiempoBaile(int tiempoBaile) {
+        this.tiempoBaile = tiempoBaile;
     }
-    @Override
-    public String toString() {
-        return  nombre;
+
+    public boolean isBailando() {
+        return bailando;
+    }
+    public void setBailando(boolean isBailando ){
+        this.bailando = isBailando;
     }
 }
+
